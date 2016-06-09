@@ -11,5 +11,9 @@ var Stack = function() {
 var stackMethods = {
   size: function() {
     return this.stackSize;
+  },
+  push: function(value) {
+    this.storage[this.stackSize] = value;
+    this.stackSize++;
   }
 };
