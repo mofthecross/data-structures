@@ -20,7 +20,7 @@ treeMethods.contains = function(target) {
   if (this.value === target) {
     return true; 
   } else {
-    for (var i = 0; i < this.children.length; i++) {
+    for (var i = 0; i < this.children.length && res === false; i++) {
       res = this.children[i].contains(target);
     }
   }
