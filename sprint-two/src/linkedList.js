@@ -26,11 +26,10 @@ var LinkedList = function() {
 
   list.contains = function(target) {
     var currNode = list.head; 
-    while (currNode !== null) {
+    for (; currNode !== null; currNode = currNode.next) {
       if (currNode.value === target) {
         return true; 
       } 
-      currNode = currNode.next;
     }
     return false;
   };
