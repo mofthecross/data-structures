@@ -17,6 +17,15 @@ var queueMethods = {
     this.storage[this.back] = value;
     this.queueSize++;
     this.back++;
+  },
+  dequeue: function() {
+    if (this.queueSize !== 0) {
+      var out = this.storage[this.front];
+      delete this.storage[this.front];
+      this.queueSize--;
+      this.front++;
+      return out;
+    }
   }
 };
 
