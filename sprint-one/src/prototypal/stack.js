@@ -8,4 +8,8 @@ var Stack = function() {
   return newStack;
 };
 
-var stackMethods = {};
+var stackMethods = {
+  size: function() {
+    return this.stackSize;
+  }
+};
