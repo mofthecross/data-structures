@@ -17,4 +17,14 @@ Queue.prototype.enqueue = function(value) {
   this.back++;
 };
 
+Queue.prototype.dequeue = function() {
+  if (this.queueSize !== 0) {
+    var out = this.storage[this.front];
+    delete this.storage[this.front];
+    this.queueSize--;
+    this.front++;
+    return out;
+  }
+};
+
 var ourQueue = new Queue();
