@@ -15,4 +15,13 @@ Stack.prototype.push = function(value) {
   this.stackSize++;
 };
 
+Stack.prototype.pop = function() {
+  if (this.stackSize !== 0) {
+    this.stackSize--;
+    var out = this.storage[this.stackSize];
+    delete this.storage[this.stackSize];
+    return out;
+  }
+};
+
 var myStack = new Stack();
