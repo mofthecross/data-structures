@@ -11,4 +11,10 @@ Queue.prototype.size = function() {
   return this.queueSize;
 };
 
+Queue.prototype.enqueue = function(value) {
+  this.storage[this.back] = value;
+  this.queueSize++;
+  this.back++;
+};
+
 var ourQueue = new Queue();
