@@ -15,5 +15,13 @@ var stackMethods = {
   push: function(value) {
     this.storage[this.stackSize] = value;
     this.stackSize++;
+  },
+  pop: function() {
+    if (this.stackSize !== 0) {
+      this.stackSize--;
+      this.out = this.storage[this.stackSize];
+      delete this.storage[this.stackSize];
+      return this.out;
+    }
   }
 };
