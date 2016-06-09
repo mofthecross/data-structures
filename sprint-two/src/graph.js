@@ -2,14 +2,23 @@
 
 // Instantiate a new graph
 var Graph = function() {
+  this.storage = {};
 };
 
 // Add a node to the graph, passing in the node's value.
 Graph.prototype.addNode = function(node) {
+  this.storage[node] = [];
 };
 
 // Return a boolean value indicating if the value passed to contains is represented in the graph.
-Graph.prototype.contains = function(node) {
+Graph.prototype.contains = function(target) {
+  var result = false;
+  _.each(this.storage, function(node, key) {
+    if (key === ('' + target)) {
+      result = true;
+    }
+  });
+  return result;
 };
 
 // Removes a node from the graph.
