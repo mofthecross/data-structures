@@ -7,5 +7,8 @@ var Queue = function() {
   this.storage = {};
 };
 
+Queue.prototype.size = function() {
+  return this.queueSize;
+};
 
 var ourQueue = new Queue();
