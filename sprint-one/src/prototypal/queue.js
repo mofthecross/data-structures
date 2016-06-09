@@ -9,6 +9,10 @@ var Queue = function() {
   return newQueue;
 };
 
-var queueMethods = {};
+var queueMethods = {
+  size: function() {
+    return this.queueSize;
+  }
+};
 
 
