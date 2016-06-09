@@ -27,4 +27,5 @@ Queue.prototype.dequeue = function() {
   }
 };
 
+
 var ourQueue = new Queue();
