@@ -4,6 +4,8 @@ var LinkedList = function() {
   list.tail = null;
 
   list.addToTail = function(value) {
+    list[value] = Node(value);
+    list.tail = list[value];
   };
 
   list.removeHead = function() {
