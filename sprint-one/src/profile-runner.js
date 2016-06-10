@@ -2,10 +2,10 @@
   // var funcQueueArr = [];
   // var funcShareStackArr = [];
   // var funcShareQueueArr = [];
-  var prototypalStackArr = [];
-  var prototypalQueueArr = [];
-  // var pseudoclassicStackArr = [];
-  // var pseudoclassicQueueArr = [];
+  // var prototypalStackArr = [];
+  // var prototypalQueueArr = [];
+  var pseudoclassicStackArr = [];
+  var pseudoclassicQueueArr = [];
 
 $(document).ready(function() {
 
@@ -16,10 +16,10 @@ $(document).ready(function() {
     // funcQueueArr.push(FunctionalQueue());
     // funcShareStackArr.push(FunctionalSharedStack());
     // funcShareQueueArr.push(FunctionalSharedQueue());
-    prototypalStackArr.push(PrototypalStack());
-    prototypalQueueArr.push(PrototypalQueue());
-    // pseudoclassicStackArr.push(new PseudoClassicalStack());
-    // pseudoclassicQueueArr.push(new PseudoClassicalQueue());
+    // prototypalStackArr.push(PrototypalStack());
+    // prototypalQueueArr.push(PrototypalQueue());
+    pseudoclassicStackArr.push(new PseudoClassicalStack());
+    pseudoclassicQueueArr.push(new PseudoClassicalQueue());
 
     if (i === stackAndQueueSizes) {
       $('.frame').text('We\'re done!');
@@ -53,7 +53,11 @@ prototypal pattern:
   total heap:  26.1 MB, 90% of total heap
 
 pseudoclassical pattern:
-  stack time:  ms
-  queue time:  ms
+  stack time:  2.1 ms
+  queue time:  2.6 ms
+  stack heap:  10.5 MB
+  queue heap:  12.1 MB
+  total heap:  25.2 MB, 90% of total heap
+
 
 */
