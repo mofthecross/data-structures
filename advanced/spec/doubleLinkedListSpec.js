@@ -2,7 +2,7 @@ describe('doubleLinkedList', function() {
   var doubleLinkedList;
 
   beforeEach(function() {
-    doubleLinkedList = DoubleLinkedList();
+    doubleLinkedList = new DoubleLinkedList();
   });
 
   it('should have a head and tail', function() {
