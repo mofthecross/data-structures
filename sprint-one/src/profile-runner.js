@@ -59,5 +59,17 @@ pseudoclassical pattern:
   queue heap:  12.1 MB
   total heap:  25.2 MB, 90% of total heap
 
+Analysis:
+  Functional Pattern - 
+    longest time, largest heap, generally unreasonable
 
+  Functional-Shared Pattern - 
+    average time, average heap, faster than Prototypal Pattern
+
+  Prototypal Pattern - 
+    average time, average heap, smaller than Functional-Shared Pattern
+
+  Pseudoclassical Pattern - 
+    shortest time, smallest heap, very reasonable
+  
 */
