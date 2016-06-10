@@ -1,25 +1,25 @@
-$(document).ready(function() {
+  var funcStackArr = [];
+  var funcQueueArr = [];
+  var funcShareStackArr = [];
+  var funcShareQueueArr = [];
+  var prototypalStackArr = [];
+  var prototypalQueueArr = [];
+  var pseudoclassicStackArr = [];
+  var pseudoclassicQueueArr = [];
 
-  var funcStack = FunctionalStack();
-  var funcQueue = FunctionalQueue();
-  var funcShareStack = FunctionalSharedStack();
-  var funcShareQueue = FunctionalSharedQueue();
-  var prototypalStack = PrototypalStack();
-  var prototypalQueue = PrototypalQueue();
-  var pseudoclassicStack = new PseudoClassicalStack();
-  var pseudoclassicQueue = new PseudoClassicalQueue();
+$(document).ready(function() {
 
   var stackAndQueueSizes = 1000;
 
   for (var i = 0; i <= stackAndQueueSizes; i++) {
-    funcStack.push(i);
-    funcQueue.enqueue(i);
-    funcShareStack.push(i);
-    funcShareQueue.enqueue(i);
-    prototypalStack.push(i);
-    prototypalQueue.enqueue(i);
-    pseudoclassicStack.push(i);
-    pseudoclassicQueue.enqueue(i);
+    funcStackArr.push(FunctionalStack());
+    funcQueueArr.push(FunctionalQueue());
+    funcShareStackArr.push(FunctionalSharedStack());
+    funcShareQueueArr.push(FunctionalSharedQueue());
+    prototypalStackArr.push(PrototypalStack());
+    prototypalQueueArr.push(PrototypalQueue());
+    pseudoclassicStackArr.push(new PseudoClassicalStack());
+    pseudoclassicQueueArr.push(new PseudoClassicalQueue());
 
     if (i === stackAndQueueSizes) {
       $('.frame').text('We\'re done!');
