@@ -9,4 +9,16 @@ $(document).ready(function() {
   var pseudoclassicStack = new PseudoClassicalStack();
   var pseudoclassicQueue = new PseudoClassicalQueue();
 
-};
+  var stackAndQueueSizes = 1000;
+
+  for (var i = 0; i <= stackAndQueueSizes; i++) {
+    funcStack.push(i);
+    funcQueue.enqeue(i);
+    funcShareStack.push(i);
+    funcShareQueue.enqeue(i);
+    prototypalStack.push(i);
+    prototypalQueue.enqeue(i);
+    pseudoclassicStack.push(i);
+    pseudoclassicQueue.enqeue(i);
+  }
+});
