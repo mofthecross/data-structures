@@ -205,7 +205,7 @@ PseudoClassicalStack.prototype.pop = function() {
   }
 };
 
-var PsuedoClassicalQueue = function() {
+var PseudoClassicalQueue = function() {
   // Hey! Rewrite in the new style. Your code will wind up looking very similar,
   // but try not not reference your old code in writing the new style.
   this.front = 0;
@@ -214,17 +214,17 @@ var PsuedoClassicalQueue = function() {
   this.storage = {};
 };
 
-PsuedoClassicalQueue.prototype.size = function() {
+PseudoClassicalQueue.prototype.size = function() {
   return this.queueSize;
 };
 
-PsuedoClassicalQueue.prototype.enqueue = function(value) {
+PseudoClassicalQueue.prototype.enqueue = function(value) {
   this.storage[this.back] = value;
   this.queueSize++;
   this.back++;
 };
 
-PsuedoClassicalQueue.prototype.dequeue = function() {
+PseudoClassicalQueue.prototype.dequeue = function() {
   if (this.queueSize !== 0) {
     var out = this.storage[this.front];
     delete this.storage[this.front];

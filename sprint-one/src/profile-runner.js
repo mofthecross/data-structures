@@ -13,12 +13,17 @@ $(document).ready(function() {
 
   for (var i = 0; i <= stackAndQueueSizes; i++) {
     funcStack.push(i);
-    funcQueue.enqeue(i);
+    funcQueue.enqueue(i);
     funcShareStack.push(i);
-    funcShareQueue.enqeue(i);
+    funcShareQueue.enqueue(i);
     prototypalStack.push(i);
-    prototypalQueue.enqeue(i);
+    prototypalQueue.enqueue(i);
     pseudoclassicStack.push(i);
-    pseudoclassicQueue.enqeue(i);
+    pseudoclassicQueue.enqueue(i);
+
+    if (i === stackAndQueueSizes) {
+      $('.frame').text('We\'re done!');
+
+    }
   }
 });
