@@ -9,7 +9,7 @@
 
 $(document).ready(function() {
 
-  var stackAndQueueSizes = 500000;
+  var stackAndQueueSizes = 100000;
 
   for (var i = 0; i <= stackAndQueueSizes; i++) {
     funcStackArr.push(FunctionalStack());
@@ -29,9 +29,25 @@ $(document).ready(function() {
 });
 
 /*
+Test Quantity 100,000 instantiations each.
+
 functional pattern:
+  stack time: 107.0 ms
+  queue time: 113.0 ms
+  stack heap:  41.7 MB
+  queue heap:  40.1 MB
+  total heap:  84.3 MB, 97% of total heap
+  
 functional shared pattern:
+  stack time:  ms
+  queue time:  ms
+
 prototypal pattern:
+  stack time:  ms
+  queue time:  ms
+
 pseudoclassical pattern:
+  stack time:  ms
+  queue time:  ms
 
 */
