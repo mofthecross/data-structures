@@ -5,7 +5,15 @@ var DoubleLinkedList = function() {
 };
 
 DoubleLinkedList.prototype.addToHead = function(value) {
-  
+  this.list[value] = new Node(value);
+  if (this.head !== null) {
+    this.list[value].next = this.head;
+    this.head.prev = this.list[value];  
+  }
+  this.head = this.list[value];
+  if (this.tail === null) {
+    this.tail = this.list[value];
+  }
 };
 
 DoubleLinkedList.prototype.addToTail = function(value) {
