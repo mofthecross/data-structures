@@ -29,6 +29,23 @@ treeMethods.contains = function(target) {
   return res;
 };
 
+treeMethods.removeFromParent = function() {
+  //keep track of the 'parent' to be removed, named 'parentNode'
+  var parentNode = this.parent;
+  //keep track of 'this' node as the 'childNode'
+  var childNode = this;
+  //make 'childNode' forget its 'parent'
+  childNode.parent = null;
+  //make 'parentNode' forget 'this' from its 'children'
+  _.each(parentNode.children, function(tempNode, key) {
+    if (childNode.value === tempNode.value) {
+      parentNode.children[key] = null;
+    }
+  });
+  //return 'childNode' tree in order to keep track of it.
+  return childNode;
+};
+
 /*
  * Complexity: What is the time complexity of the above functions?
  addChild = O(1)
