@@ -18,9 +18,9 @@ HashTable.prototype.insert = function(k, v) {
   bucket.push([k, v]);
   this._storage.set(index, bucket);
   this._size++;
-  // if (this._size > (this._limit * .75)) {
-  //   this._increaseLimit();
-  // }
+  if (this._size > (this._limit * 3 / 4)) {
+    this._increaseLimit();
+  }
 };
 
 HashTable.prototype.retrieve = function(k) {
@@ -42,18 +42,29 @@ HashTable.prototype.remove = function(k) {
     }
   }
 };
-// HashTable.prototype._increaseLimit = function() {
-//   //store current values outside HashTable
-//   var tempStorage = [];
-//   _.each(this._storage, function(val, key) {
-//     if (val === null)
-//   });
+
+HashTable.prototype._increaseLimit = function() {
+  //store current values outside HashTable
+  var table = this;
+  var tempStorage = [];
+  table._size = 0;
+  table._storage.each(function(bucket, key) {
+    if (bucket !== undefined) {
+      _.each(bucket, function(item) {
+        tempStorage.push(item);
+      });
+    } 
+  });
   //increase the table limit
-  //create a new table with the new limit
-  //re add all values to new table
-// };
+  table._limit = table._limit * 2;
+  // create a new table with the new limit
+  table._storage = LimitedArray(table._limit);
 
-
+  // re add all values to new table 
+  _.each(tempStorage, function(item) {
+    table.insert(item[0], item[1]);
+  });
+};
 
 /*
  * Complexity: What is the time complexity of the above functions?
