@@ -9,12 +9,14 @@ DoubleLinkedList.prototype.addToHead = function(value) {
 };
 
 DoubleLinkedList.prototype.addToTail = function(value) {
-  this.list[value] = Node(value);
+  this.list[value] = new Node(value);
+  if (this.tail !== null) {
+    this.list[value].prev = this.tail;
+    this.tail.next = this.list[value];
+  }
+  this.tail = this.list[value];
   if (this.head === null) {
-    this.head === this.list[value];
-    this.tail === this.list[value];
-  } else {
-    this.tail === this.
+    this.head = this.list[value];
   }
 };
 
@@ -24,7 +26,7 @@ DoubleLinkedList.prototype.contains = function(target) {
 
 DoubleLinkedList.prototype.removeHead = function() {
   // body...
-};
+}; 
 
 DoubleLinkedList.prototype.removeTail = function() {
   // body...
@@ -38,12 +40,8 @@ DoubleLinkedList.prototype.listBackwards = function() {
   // body...
 };
 
-DoubleLinkedList.prototype.Node = function(value) {
-  var node = {};
-
-  node.value = value;
-  node.next = null;
-  node.prev = null;
-
-  return node;
+var Node = function(value) {
+  this.value = value;
+  this.next = null;
+  this.prev = null;
 };
