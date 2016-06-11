@@ -86,7 +86,18 @@ DoubleLinkedList.prototype.listForwards = function() {
 };
 
 DoubleLinkedList.prototype.listBackwards = function() {
-  // body...
+  //look at the 'tail' and store it as 'currNode'
+  var currNode = this.tail;
+  //store the ouput named 'results'
+  var results = [];
+  //if the 'currNode' of the list exists
+  for (; currNode !== null; currNode = currNode.prev) {
+    //store the 'currNode's value in 'results'
+    results.push(currNode.value);
+    //repeat this process until 'currNode' reaches the end
+  }
+  //return the 'results'
+  return results;
 };
 
 var Node = function(value) {
