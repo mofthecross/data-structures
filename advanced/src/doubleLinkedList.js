@@ -34,7 +34,7 @@ DoubleLinkedList.prototype.contains = function(target) {
 
 DoubleLinkedList.prototype.removeHead = function() {
   //reference the original 'head' of the list
-  var temp = this.head;
+  var temp = this.head.value;
   //make sure there is a head
   if (this.head !== null) {
     //if so, check if the list has more than 1 item
