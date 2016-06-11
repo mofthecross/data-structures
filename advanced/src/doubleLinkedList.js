@@ -29,7 +29,22 @@ DoubleLinkedList.prototype.addToTail = function(value) {
 };
 
 DoubleLinkedList.prototype.contains = function(target) {
-  // body...
+  var currNode;
+  //look over the list
+  if (this.head !== null && this.tail !== null) {
+    //compare each value to the target
+    if (this.head.value === target) {
+      return true;
+    } else if (this.head.next !== null) {
+      currNode = this.head.next;
+      for (;currNode !== null; currNode = currNode.next) {
+        if (currNode.value === target) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
 };
 
 DoubleLinkedList.prototype.removeHead = function() {
