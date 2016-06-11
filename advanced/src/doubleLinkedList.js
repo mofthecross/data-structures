@@ -29,7 +29,11 @@ DoubleLinkedList.prototype.removeHead = function() {
 }; 
 
 DoubleLinkedList.prototype.removeTail = function() {
-  // body...
+  var temp = this.tail.value;
+  this.tail.prev.next = null;
+  this.tail = this.tail.prev;
+  delete this.list[temp];
+  return temp;
 };
 
 DoubleLinkedList.prototype.listForwards = function() {
