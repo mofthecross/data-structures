@@ -8,52 +8,50 @@ var HashTable = function() {
 
 HashTable.prototype.insert = function(k, v) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  if (Array.isArray(this._storage[index])) {
-    for (var i = 0; i < this._storage[index].length; i++) {
-      if (this._storage[index][i][0] === k) {
-        this._storage[index][i][1] = v;
-        return;
-      }
-    } 
-    this._storage[index].push([k, v]);
-  } else {
-    this._storage[index] = [[k, v]];
-    this._size++;
+  var bucket = this._storage.get(index) || [];
+  for (var i = 0; i < bucket.length; i++) {
+    if (bucket[i][0] === k) {
+      bucket[i][1] = v;
+      return;
+    }
   }
-  if (this._size > (this._limit * .75)) {
-    this._increaseLimit();
-  }
+  bucket.push([k, v]);
+  this._storage.set(index, bucket);
+  this._size++;
+  // if (this._size > (this._limit * .75)) {
+  //   this._increaseLimit();
+  // }
 };
 
 HashTable.prototype.retrieve = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  for (var i = 0; i < this._storage[index].length; i++) {
-    if (this._storage[index][i][0] === k) {
-      return this._storage[index][i][1];
+  var bucket = this._storage.get(index) || [];
+  for (var i = 0; i < bucket.length; i++) {
+    if (bucket[i][0] === k) {
+      return bucket[i][1];
     }
   }
 };
 
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
-  for (var i = 0; i < this._storage[index].length; i++) {
-    if (this._storage[index][i][0] === k) {
-      this._storage[index][i][0] = undefined;
-      this._storage[index][i][1] = undefined;
+  var bucket = this._storage.get(index) || [];
+  for (var i = 0; i < bucket.length; i++) {
+    if (bucket[i][0] === k) {
+      bucket[i].splice(0);
     }
   }
-  
 };
-HashTable.prototype._increaseLimit = function() {
-  //store current values outside HashTable
-  var tempStorage = [];
-  _.each(this._storage, function(val, key) {
-    if (val === null)
-  });
+// HashTable.prototype._increaseLimit = function() {
+//   //store current values outside HashTable
+//   var tempStorage = [];
+//   _.each(this._storage, function(val, key) {
+//     if (val === null)
+//   });
   //increase the table limit
   //create a new table with the new limit
   //re add all values to new table
-};
+// };
 
 
 
