@@ -71,7 +71,18 @@ DoubleLinkedList.prototype.removeTail = function() {
 };
 
 DoubleLinkedList.prototype.listForwards = function() {
-  // body...
+  //look at the 'head' and store it as 'currNode'
+  var currNode = this.head;
+  //store the ouput named 'results'
+  var results = [];
+  //if the 'currNode' of the list exists
+  for (; currNode !== null; currNode = currNode.next) {
+    //store the 'currNode's value in 'results'
+    results.push(currNode.value);
+    //repeat this process until 'currNode' reaches the end
+  }
+  //return the 'results'
+  return results;
 };
 
 DoubleLinkedList.prototype.listBackwards = function() {

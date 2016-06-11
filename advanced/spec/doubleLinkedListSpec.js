@@ -72,14 +72,14 @@ describe('doubleLinkedList', function() {
     doubleLinkedList.addToTail(5);
     doubleLinkedList.addToTail(6);
     doubleLinkedList.addToTail(3);
-    expect(doubleLinkedList.listForwards()).to.equal([5, 6, 3]);
+    expect(doubleLinkedList.listForwards()).to.deep.equal([5, 6, 3]);
   });
 
   it('should list it\'s contents backwards.', function() {
     doubleLinkedList.addToTail(5);
     doubleLinkedList.addToTail(6);
     doubleLinkedList.addToTail(3);
-    expect(doubleLinkedList.listBackwards()).to.equal([3, 6, 5]);
+    expect(doubleLinkedList.listBackwards()).to.deep.equal([3, 6, 5]);
   });
 
   // add more tests here to test the functionality of doubleLinkedList
