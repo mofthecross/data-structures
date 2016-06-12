@@ -36,9 +36,16 @@ HashTable.prototype.retrieve = function(k) {
 HashTable.prototype.remove = function(k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   var bucket = this._storage.get(index) || [];
+  // debugger;
   for (var i = 0; i < bucket.length; i++) {
     if (bucket[i][0] === k) {
-      bucket[i].splice(0);
+      delete bucket[i];
+      // debugger; 
+      this._size--;
+      console.log(this._size);
+      if (this._size < (this._limit / 2)) {
+        this._decreaseLimit();
+      }
     }
   }
 };
@@ -56,13 +63,42 @@ HashTable.prototype._increaseLimit = function() {
     } 
   });
   //increase the table limit
+  //debugger;
   table._limit = table._limit * 2;
   // create a new table with the new limit
   table._storage = LimitedArray(table._limit);
 
   // re add all values to new table 
-  _.each(tempStorage, function(item) {
-    table.insert(item[0], item[1]);
+  _.each(tempStorage, function(bucket) { 
+    _.each(bucket, function(item) {
+      table.insert(item[0], item[1]);
+    });
+  });
+};
+
+HashTable.prototype._decreaseLimit = function() {
+  //store current values outside HashTable
+  var table = this;
+  var tempStorage = [];
+  table._size = 0;
+  table._storage.each(function(bucket, key) {
+    if (bucket !== undefined) {
+      _.each(bucket, function(item) {
+        tempStorage.push(item);
+      });
+    } 
+  });
+  //dencrease the table limit
+  debugger;
+  table._limit = table._limit / 2;
+  // create a new table with the new limit
+  table._storage = LimitedArray(table._limit);
+
+  // re add all values to new table 
+  _.each(tempStorage, function(bucket) {
+    _.each(bucket, function(item) {
+      table.insert(item[0], item[1]);
+    });
   });
 };
 
